@@ -1,0 +1,471 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0.75rem;
+  --background: #cbd5e1; /* cinza mais escuro (slate-300) para substituir o branco */
+  --foreground: #1a1a1a;
+  --card: #e5e7eb; /* cartas mais escuras mantendo contraste */
+  --card-foreground: #1a1a1a;
+  --popover: #FFFFFF;
+  --popover-foreground: #1a1a1a;
+  --primary: #D4AF37; /* Dourado elegante */
+  --primary-foreground: #1a1a1a;
+  --secondary: #1a1a1a;
+  --secondary-foreground: #D4AF37;
+  --muted: #d1d8e1; /* seções neutras ainda mais fechadas */
+  --muted-foreground: #44505b;
+  --accent: #d8dee6;
+  --accent-foreground: #1a1a1a;
+  --destructive: #dc3545;
+  --border: #b4bdc9;
+  --input: #b4bdc9;
+  --ring: #D4AF37;
+  --chart-1: #D4AF37;
+  --chart-2: #1a1a1a;
+  --chart-3: #6c757d;
+  --chart-4: #e9ecef;
+  --chart-5: #f8f9fa;
+  --sidebar: #cbd5e1;
+  --sidebar-foreground: #1a1a1a;
+  --sidebar-primary: #D4AF37;
+  --sidebar-primary-foreground: #1a1a1a;
+  --sidebar-accent: #d1d8e1;
+  --sidebar-accent-foreground: #1a1a1a;
+  --sidebar-border: #b4bdc9;
+  --sidebar-ring: #D4AF37;
+}
+
+.dark {
+  --background: #1a1a1a;
+  --foreground: #FFFFFF;
+  --card: #2d2d2d;
+  --card-foreground: #FFFFFF;
+  --popover: #2d2d2d;
+  --popover-foreground: #FFFFFF;
+  --primary: #D4AF37;
+  --primary-foreground: #1a1a1a;
+  --secondary: #404040;
+  --secondary-foreground: #D4AF37;
+  --muted: #404040;
+  --muted-foreground: #adb5bd;
+  --accent: #404040;
+  --accent-foreground: #FFFFFF;
+  --destructive: #dc3545;
+  --border: #495057;
+  --input: #495057;
+  --ring: #D4AF37;
+  --chart-1: #D4AF37;
+  --chart-2: #FFFFFF;
+  --chart-3: #adb5bd;
+  --chart-4: #495057;
+  --chart-5: #2d2d2d;
+  --sidebar: #1a1a1a;
+  --sidebar-foreground: #FFFFFF;
+  --sidebar-primary: #D4AF37;
+  --sidebar-primary-foreground: #1a1a1a;
+  --sidebar-accent: #404040;
+  --sidebar-accent-foreground: #FFFFFF;
+  --sidebar-border: #495057;
+  --sidebar-ring: #D4AF37;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+  }
+}
+
+/* Animações personalizadas */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animate-fade-in-left {
+  animation: fadeInLeft 0.8s ease-out forwards;
+}
+
+.animate-fade-in-right {
+  animation: fadeInRight 0.8s ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.6s ease-out forwards;
+}
+
+.animation-delay-200 {
+  animation-delay: 0.2s;
+}
+
+.animation-delay-400 {
+  animation-delay: 0.4s;
+}
+
+.animation-delay-600 {
+  animation-delay: 0.6s;
+}
+
+.animation-delay-800 {
+  animation-delay: 0.8s;
+}
+
+/* Efeito de destaque para imagens */
+.image-hover-effect {
+  overflow: hidden;
+  border-radius: var(--radius);
+}
+
+.image-hover-effect img {
+  transition: transform 0.7s ease, filter 0.7s ease;
+}
+
+.image-hover-effect:hover img {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+
+/* Gradientes elegantes */
+.gradient-gold {
+  background: linear-gradient(135deg, #D4AF37 0%, #FFD700 100%);
+}
+
+.text-gradient-gold {
+  background: linear-gradient(135deg, #D4AF37 0%, #FFD700 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-dark {
+  /* Verde escuro com efeitos especiais */
+  background: linear-gradient(135deg, #0a2a20 0%, #07241b 45%, #041912 100%);
+  animation: pulse-bg 8s ease-in-out infinite alternate;
+}
+
+@keyframes pulse-bg {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.gradient-overlay {
+  background: linear-gradient(135deg, rgba(3, 18, 13, 0.75) 0%, rgba(212, 175, 55, 0.3) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.gradient-overlay::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, rgba(3, 18, 13, 0) 60%);
+  animation: rotate-gradient 15s linear infinite;
+}
+
+@keyframes rotate-gradient {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Efeitos de hover */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(212, 175, 55, 0.3);
+}
+
+.hover-glow {
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
+  transform: scale(1.02);
+}
+
+/* Efeito de gradiente para botões */
+.btn-primary {
+  background: linear-gradient(135deg, #3B9A6D 0%, #2E8B57 100%);
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #2E8B57 0%, #3B9A6D 100%);
+  transition: left 0.5s ease;
+  z-index: -1;
+}
+
+.btn-primary:hover::before {
+  left: 0;
+}
+
+/* Efeito shimmer para elementos de carregamento */
+.shimmer {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200px 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Estilos para mobile-first */
+@media (max-width: 768px) {
+  .mobile-padding {
+    padding: 1rem;
+  }
+  
+  .mobile-text-center {
+    text-align: center;
+  }
+  
+  .mobile-full-width {
+    width: 100%;
+  }
+}
+
+/* Estilos para seções */
+.section-padding {
+  padding: 4rem 1rem;
+}
+
+@media (min-width: 768px) {
+  .section-padding {
+    padding: 6rem 2rem;
+  }
+}
+
+/* Botões personalizados */
+.btn-primary {
+  background: linear-gradient(135deg, #D4AF37 0%, #FFD700 100%);
+  color: #1a1a1a;
+  font-weight: 600;
+  padding: 0.75rem 2rem;
+  border-radius: 0.75rem;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #B8860B 0%, #D4AF37 100%);
+  transition: left 0.5s ease;
+  z-index: -1;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
+}
+
+.btn-primary:hover::before {
+  left: 0;
+}
+
+/* Cards elegantes */
+.elegant-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(46, 139, 87, 0.1);
+  border-radius: 1rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.elegant-card:hover {
+  border-color: rgba(46, 139, 87, 0.3);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.elegant-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 0;
+  background: linear-gradient(to bottom, #3B9A6D, #2E8B57);
+  transition: height 0.5s ease;
+}
+
+.elegant-card:hover::before {
+  height: 100%;
+}
+
+/* Elementos decorativos */
+.decorative-line {
+  height: 3px;
+  width: 60px;
+  background: linear-gradient(90deg, #D4AF37, #FFD700);
+  margin: 1rem auto;
+  border-radius: 3px;
+}
+
+.section-title::before {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 4px;
+  background: linear-gradient(90deg, #D4AF37, #FFD700);
+  margin-bottom: 1rem;
+  border-radius: 2px;
+}
+
+/* Tipografia melhorada */
+.heading-primary {
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 700;
+  line-height: 1.2;
+  background: linear-gradient(135deg, #D4AF37 0%, #FFD700 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Serif clássica para o nome do local */
+.brand-serif {
+  font-family: "Georgia", "Times New Roman", serif;
+  letter-spacing: 0.5px;
+}
+
+.heading-secondary {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.text-elegant {
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  line-height: 1.7;
+  color: #6c757d;
+}
+
